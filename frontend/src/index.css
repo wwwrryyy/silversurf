@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-padding-top: 5rem;
+}
+
+h1, h2, h3 {
+  text-wrap: balance;
+}
+
+body {
+  margin: 0;
+  background-color: #faf9f5;
+  color: #141413;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+}
+
+/* Tabular figures for numbers, currency, and timestamps */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum';
+}
+
+/* Claude warm subtle scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #faf9f5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #e6dfd8;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #d9d0c5;
+}
+
+/* Claude coral focus outline */
+:focus-visible {
+  outline: 2px solid #cc785c;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

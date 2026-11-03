@@ -1,0 +1,29 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "127.0.0.1:8000:8000"
+    environment:
+      - DATABASE_PATH=/data/silversurf.db
+      - SNAPSHOTS_DIR=/data/snapshots
+      - TIMEZONE=Asia/Kolkata
+      - LOG_LEVEL=INFO
+      - ADMIN_TOKEN=${ADMIN_TOKEN:-}
+    volumes:
+      - silversurf-data:/data
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "127.0.0.1:3000:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+volumes:
+  silversurf-data:
